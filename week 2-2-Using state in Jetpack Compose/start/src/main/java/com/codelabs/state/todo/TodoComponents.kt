@@ -109,7 +109,7 @@ fun IconRow(
 ) {
     Row(modifier) {
         for (todoIcon in TodoIcon.values()) {
-            SelectableIconButton(
+            SelectableIconButton (
                 icon = todoIcon.imageVector,
                 iconContentDescription = todoIcon.contentDescription,
                 onIconSelected = { onIconChange(todoIcon) },

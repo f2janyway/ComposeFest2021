@@ -31,7 +31,8 @@ data class TodoItem(
     val task: String,
     val icon: TodoIcon = TodoIcon.Default,
     // since the user may generate identical tasks, give them each a unique ID
-    val id: UUID = UUID.randomUUID()
+    val id: UUID = UUID.randomUUID(),
+    val alpha:Float = randomTint()
 )
 
 enum class TodoIcon(val imageVector: ImageVector, @StringRes val contentDescription: Int) {

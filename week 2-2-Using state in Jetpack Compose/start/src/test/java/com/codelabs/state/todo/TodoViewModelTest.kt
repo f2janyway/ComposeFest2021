@@ -16,6 +16,41 @@
 
 package com.codelabs.state.todo
 
+import com.codelabs.state.util.generateRandomTodoItem
+import com.google.common.truth.Truth.assertThat
+import org.junit.Before
+import org.junit.Test
+
 class TodoViewModelTest {
-    // TODO: Write tests
+    lateinit var viewModel: TodoViewModel
+    lateinit var item1: TodoItem
+    lateinit var item2: TodoItem
+
+    @Before
+    fun setup() {
+        viewModel = TodoViewModel()
+        item1 = generateRandomTodoItem()
+        item2 = generateRandomTodoItem()
+        viewModel.addItem(item1)
+        viewModel.addItem(item2)
+    }
+
+    @Test
+    fun whenRemovingItem_updateList() {
+
+        viewModel.removeItem(item1)
+
+        assertThat(viewModel.todoItems).isEqualTo(listOf(item2))
+        assertThat(viewModel.currentEditItem).isNull()
+    }
+
+    @Test
+    fun selectItem_updateCurrentItem() {
+
+        viewModel.onEditItemSelected(item1)
+        assertThat(viewModel.currentEditItem).isEqualTo(item1)
+
+        viewModel.onEditItemSelected(item2)
+        assertThat(viewModel.currentEditItem).isEqualTo(item2)
+    }
 }
