@@ -20,12 +20,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.example.compose.rally"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -88,6 +88,7 @@ android {
 dependencies {
 
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
@@ -109,6 +110,10 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation 'androidx.test:core:1.4.1-alpha03'
+
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+    testImplementation "com.google.truth:truth:1.0.1"
 
     // Compose testing dependencies
     androidTestImplementation "androidx.compose.ui:ui-test:$rootProject.composeVersion"
